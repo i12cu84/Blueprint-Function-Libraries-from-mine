@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-FileOperations.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\chru\Desktop\PluginsEditor\Intermediate\Build\Win64\x64\PluginsEditorEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.InclOrderUnreal5_0.h.obj"
+"C:\Users\chru\Desktop\PluginsEditor\Plugins\FileOperations\Intermediate\Build\Win64\x64\UnrealEditor\Development\FileOperations\Module.FileOperations.cpp.obj"
+"C:\Users\chru\Desktop\PluginsEditor\Plugins\FileOperations\Intermediate\Build\Win64\x64\UnrealEditor\Development\FileOperations\Default.rc2.res"
+/OUT:"C:\Users\chru\Desktop\PluginsEditor\Plugins\FileOperations\Intermediate\Build\Win64\x64\UnrealEditor\Development\FileOperations\UnrealEditor-FileOperations.lib"
