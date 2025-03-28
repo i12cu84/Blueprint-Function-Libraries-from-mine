@@ -22,6 +22,7 @@ struct FLinearColor;
 #define FID_Users_chru_Desktop_PluginsEditor_Plugins_FileOperations_Source_FileOperations_Public_FileOperationsBPLibrary_h_57_SPARSE_DATA
 #define FID_Users_chru_Desktop_PluginsEditor_Plugins_FileOperations_Source_FileOperations_Public_FileOperationsBPLibrary_h_57_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execContainsChinese); \
 	DECLARE_FUNCTION(execLoadMediaSourceFromAbsolutePath); \
 	DECLARE_FUNCTION(execGetActorByName); \
 	DECLARE_FUNCTION(execLoadImageFromAbsolutePath); \
@@ -58,6 +59,7 @@ struct FLinearColor;
 
 #define FID_Users_chru_Desktop_PluginsEditor_Plugins_FileOperations_Source_FileOperations_Public_FileOperationsBPLibrary_h_57_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execContainsChinese); \
 	DECLARE_FUNCTION(execLoadMediaSourceFromAbsolutePath); \
 	DECLARE_FUNCTION(execGetActorByName); \
 	DECLARE_FUNCTION(execLoadImageFromAbsolutePath); \

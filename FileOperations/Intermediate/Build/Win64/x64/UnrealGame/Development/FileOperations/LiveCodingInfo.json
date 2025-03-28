@@ -1,0 +1,11 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.FileOperations.cpp.obj": [
+			"FileOperations.init.gen.cpp.obj",
+			"FileOperationsBPLibrary.gen.cpp.obj",
+			"FileOperations.cpp.obj",
+			"FileOperationsBPLibrary.cpp.obj"
+		]
+	}
+}

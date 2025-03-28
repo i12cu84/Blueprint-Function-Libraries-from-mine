@@ -62,7 +62,7 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         Category = "FileOperationsTesting")
     static float FileOperationsSampleFunction(float Param);
 
-    // ¶ÁÈ¡ÎÄ¼ş
+    // è¯»å–æ–‡ä»¶
     UFUNCTION(BlueprintCallable, Category = "FileHandle")
     static FString ReadStringToFile(FString Dir) {
         FString Result;
@@ -70,20 +70,20 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return Result;
     }
 
-    // Ğ´ÈëÎÄ¼ş ¿í×Ö·û UTF-16
+    // å†™å…¥æ–‡ä»¶ å®½å­—ç¬¦ UTF-16
     UFUNCTION(BlueprintCallable, Category = "FileHandle")
     static void WriteStringToFile(FString FileName, FString content) {
         FFileHelper::SaveStringToFile(content, *FileName);
     }
 
-    // Ğ´ÈëÎÄ¼ş UTF-8
+    // å†™å…¥æ–‡ä»¶ UTF-8
     UFUNCTION(BlueprintCallable, Category = "FileHandle")
     static bool WriteStringToFileU8(FString FileName, FString content) {
         return FFileHelper::SaveStringToFile(
             content, *FileName, FFileHelper::EEncodingOptions::ForceUTF8WithoutBOM);
     }
 
-    // Ñ°ÕÒÎÄ¼ş
+    // å¯»æ‰¾æ–‡ä»¶
     UFUNCTION(BlueprintCallable, Category = "File operation")
     static TArray<FString> FindFilesTo(FString Path, FString Filter, bool Files,
         bool Directory) {
@@ -94,53 +94,53 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return FilePathList;
     }
 
-    // ÒÆ¶¯ÎÄ¼ş
+    // ç§»åŠ¨æ–‡ä»¶
     UFUNCTION(BlueprintCallable, Category = "FileHandle")
     static bool MoveFileTo(FString To, FString From) {
         return IFileManager::Get().Move(*To, *From);
     }
 
-    // ¸´ÖÆÎÄ¼ş
+    // å¤åˆ¶æ–‡ä»¶
     UFUNCTION(BlueprintCallable, Category = "FileHandle")
     static int32 CopyFileTo(FString To, FString From) {
         return IFileManager::Get().Copy(*To, *From);
     }
 
-    // É¾³ıÎÄ¼ş
+    // åˆ é™¤æ–‡ä»¶
     UFUNCTION(BlueprintCallable, Category = "FileHandle")
     static bool DeleteFileTo(FString FilePath) {
         return IFileManager::Get().Delete(*FilePath);
     }
 
-    // ´ò¿ªÎÄ¼ş
+    // æ‰“å¼€æ–‡ä»¶
     UFUNCTION(BlueprintCallable, Category = "FileHandle")
     static void OpenFile(FString FilePath) {
         FPlatformProcess::CreateProc(*FilePath, nullptr, true, false, false,
             nullptr, 0, nullptr, nullptr);
     }
 
-    // ´´½¨ÎÄ¼ş¼Ğ
+    // åˆ›å»ºæ–‡ä»¶å¤¹
     UFUNCTION(BlueprintCallable, Category = "FileHandle")
     static void CreateDic(FString filePath) {
         IPlatformFile& PlatformFile = FPlatformFileManager::Get().GetPlatformFile();
         PlatformFile.CreateDirectory(*filePath);
     }
 
-    // É¾³ıÎÄ¼ş¼Ğ
+    // åˆ é™¤æ–‡ä»¶å¤¹
     UFUNCTION(BlueprintCallable, Category = "FileHandle")
     static void DeleteDic(FString filePath) {
         IPlatformFile& PlatformFile = FPlatformFileManager::Get().GetPlatformFile();
         PlatformFile.DeleteDirectory(*filePath);
     }
 
-    // »ñÈ¡ÎÄ¼ş´óĞ¡
+    // è·å–æ–‡ä»¶å¤§å°
     UFUNCTION(BlueprintCallable, Category = "FileHandle")
     static int64 GitFileSize(FString filePath) {
         IPlatformFile& PlatformFile = FPlatformFileManager::Get().GetPlatformFile();
         return PlatformFile.FileSize(*filePath);
     }
 
-    // ²éÕÒÎÄ¼şÄ¿Â¼ÏÂµÄËùÓĞÎÄ¼ş
+    // æŸ¥æ‰¾æ–‡ä»¶ç›®å½•ä¸‹çš„æ‰€æœ‰æ–‡ä»¶
     UFUNCTION(BlueprintCallable, DisplayName = "FindFolder",
         Category = "FileHandle")
     static TArray<FString> FindFolder(FString Path, FString Filter, bool Files,
@@ -152,7 +152,7 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return FilePathList;
     }
 
-    // ²éÕÒÎÄ¼şÄ¿Â¼ÏÂËùÓĞÎÄ¼şÎŞ·¨É¾Ñ¡²éÕÒ
+    // æŸ¥æ‰¾æ–‡ä»¶ç›®å½•ä¸‹æ‰€æœ‰æ–‡ä»¶æ— æ³•åˆ é€‰æŸ¥æ‰¾
     UFUNCTION(BlueprintCallable, DisplayName = "GetFolderFiles",
         Category = "FileHandle")
     static TArray<FString> GetFolderFiles(FString Path) {
@@ -164,13 +164,13 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return Files;
     }
 
-    // ¸´ÖÆ
+    // å¤åˆ¶
     UFUNCTION(BlueprintCallable, Category = "")
     static void CopyMessageToClipboard(FString text) {
         FPlatformMisc::ClipboardCopy(*text);
     }
 
-    // Õ³Ìù
+    // ç²˜è´´
     UFUNCTION(BlueprintCallable, Category = "")
     static FString PasteMessageFromClipboard() {
         FString ClipboardContent;
@@ -178,17 +178,17 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return ClipboardContent;
     }
 
-    // Â·¾¶ÊÇ·ñÓĞĞ§
+    // è·¯å¾„æ˜¯å¦æœ‰æ•ˆ
     UFUNCTION(BlueprintCallable, Category = "")
     static bool IsValidFilePath(const FString& FilePath) {
-        // ³¢ÊÔÊ¹ÓÃ FileExists À´¼ì²éÎÄ¼şÂ·¾¶ÊÇ·ñÓĞĞ§
+        // å°è¯•ä½¿ç”¨ FileExists æ¥æ£€æŸ¥æ–‡ä»¶è·¯å¾„æ˜¯å¦æœ‰æ•ˆ
         if (IFileManager::Get().FileExists(*FilePath)) {
             return true;
         }
         return false;
     }
 
-    // »ñÈ¡Ö¸¶¨Â·¾¶µÄÎÄ¼ş Ö»ÄÜ»ñÈ¡ÎÄ¼ş¼Ğ
+    // è·å–æŒ‡å®šè·¯å¾„çš„æ–‡ä»¶ åªèƒ½è·å–æ–‡ä»¶å¤¹
     UFUNCTION(BlueprintCallable, Category = "")
     static TArray<FString> GetFilesInDirectory(const FString& DirectoryPath) {
         TArray<FString> Files;
@@ -206,17 +206,17 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return Files;
     }
 
-    // »ñÈ¡Ö¸¶¨Â·¾¶µÄÎÄ¼ş Ö»ÄÜ»ñÈ¡mp3ÎÄ¼ş
+    // è·å–æŒ‡å®šè·¯å¾„çš„æ–‡ä»¶ åªèƒ½è·å–mp3æ–‡ä»¶
     UFUNCTION(BlueprintCallable, Category = "")
     static TArray<FString> GetMP3FilePaths(const FString& Directory) {
         TArray<FString> MP3FilePaths;
 
-        // »ñÈ¡Ö¸¶¨Ä¿Â¼ÏÂµÄËùÓĞÎÄ¼ş
+        // è·å–æŒ‡å®šç›®å½•ä¸‹çš„æ‰€æœ‰æ–‡ä»¶
         TArray<FString> Files;
         IFileManager::Get().FindFilesRecursive(Files, *Directory, TEXT("*.mp3"),
             true, false);
 
-        // ½«ÎÄ¼şÂ·¾¶Ìí¼Óµ½Êı×éÖĞ
+        // å°†æ–‡ä»¶è·¯å¾„æ·»åŠ åˆ°æ•°ç»„ä¸­
         for (const FString& FilePath : Files) {
             MP3FilePaths.Add(FPaths::ConvertRelativePathToFull(FilePath));
         }
@@ -224,34 +224,34 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return MP3FilePaths;
     }
 
-    // ´ÓÎÄ¼şÂ·¾¶ÖĞÌáÈ¡ÎÄ¼şÃû
+    // ä»æ–‡ä»¶è·¯å¾„ä¸­æå–æ–‡ä»¶å
     UFUNCTION(BlueprintCallable, Category = "")
     static FString GetFileNameFromPath(const FString& FilePath) {
         FString FileName = FPaths::GetBaseFilename(FilePath);
         return FileName;
     }
 
-    // É¾³ıÎÄ¼ş
+    // åˆ é™¤æ–‡ä»¶
     UFUNCTION(BlueprintCallable, Category = "")
     static bool DeleteFileAtPath(const FString& FilePath) {
-        // ¼ì²éÎÄ¼şÂ·¾¶ÊÇ·ñ´æÔÚ
+        // æ£€æŸ¥æ–‡ä»¶è·¯å¾„æ˜¯å¦å­˜åœ¨
         if (IFileManager::Get().FileExists(*FilePath)) {
-            // ³¢ÊÔÉ¾³ıÎÄ¼ş
+            // å°è¯•åˆ é™¤æ–‡ä»¶
             if (IFileManager::Get().Delete(*FilePath)) {
-                return true; // É¾³ı³É¹¦
+                return true; // åˆ é™¤æˆåŠŸ
             }
         }
-        return false; // É¾³ıÊ§°Ü
+        return false; // åˆ é™¤å¤±è´¥
     }
 
-    // ¿ÉºóÌ¨²¥·Å
+    // å¯åå°æ’­æ”¾
     UFUNCTION(BlueprintCallable, Category = "")
     static float SetSUVM() {
         FApp::SetUnfocusedVolumeMultiplier(1.0f);
         return FApp::GetUnfocusedVolumeMultiplier();
     }
 
-    // ±£´æ´æµµ
+    // ä¿å­˜å­˜æ¡£
     UFUNCTION(BlueprintCallable, Category = "Custom", meta = (Keywords = "Save"))
     static bool SaveConstraintArray(FString SaveDirectory, FString Filename,
         TArray<FString> SaveText,
@@ -277,7 +277,7 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return false;
     }
 
-    // ¼ÓÔØ´æµµ
+    // åŠ è½½å­˜æ¡£
     UFUNCTION(BlueprintCallable, Category = "Custom", meta = (Keywords = "Load"))
     static TArray<FString> LoadConstraintArray(FString FilePath) {
         TArray<FString> OutData;
@@ -294,7 +294,7 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return OutData;
     }
 
-    // É¾³ı´æµµ
+    // åˆ é™¤å­˜æ¡£
     UFUNCTION(BlueprintCallable, Category = "Custom",
         meta = (Keywords = "Delete"))
     static bool DeleteFile(FString FilePath) {
@@ -307,7 +307,7 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         }
     }
 
-    // »­Ïß
+    // ç”»çº¿
     UFUNCTION(BlueprintCallable, Category = "Custom", meta = (Keywords = "Draw"))
     static TArray<ULineBatchComponent*> DrawRayLine(FVector StartPos,
         FVector EndPos,
@@ -329,7 +329,7 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return LineColection;
     }
 
-    // É¾Ïß
+    // åˆ çº¿
     UFUNCTION(BlueprintCallable, Category = "Custom",
         meta = (Keywords = "Destroy"))
     static void DestoryLine(TArray<ULineBatchComponent*> LineList) {
@@ -338,7 +338,7 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         }
     }
 
-    // »ñÈ¡Â·¾¶ÏÂµÄ´æµµÃû×Ö×é
+    // è·å–è·¯å¾„ä¸‹çš„å­˜æ¡£åå­—ç»„
     UFUNCTION(BlueprintCallable, Category = "Custom",
         meta = (Keywords = "SavedFileName"))
     static TArray<FString> GetAllSaveFileNames(const FString& Directory) {
@@ -354,7 +354,7 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return OutFileNames;
     }
 
-    // ÌáÈ¡Â·¾¶ÎÄ¼şÃû×Ö
+    // æå–è·¯å¾„æ–‡ä»¶åå­—
     UFUNCTION(BlueprintCallable, Category = "Custom",
         meta = (Keywords = "ExtraceSavedFileName"))
     static FString GetFileNamePath(const FString& FilePath) {
@@ -363,7 +363,7 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return FileNameWithoutExtension;
     }
 
-    // ÌáÈ¡Í¼Æ¬
+    // æå–å›¾ç‰‡
     UFUNCTION(BlueprintCallable, Category = "Custom", meta = (Keywords = "Image"))
     static UTexture2D* LoadImageFromAbsolutePath(const FString& AbsolutePath) {
         TArray<uint8> ImageData;
@@ -405,7 +405,7 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return Texture;
     }
 
-    // °´ÕÕUAIDÌáÈ¡Actor
+    // æŒ‰ç…§UAIDæå–Actor
     UFUNCTION(BlueprintCallable, Category = "Custom",
         meta = (Keywords = "GetActor"))
     static AActor* GetActorByName(TArray<AActor*> Actors,
@@ -421,7 +421,7 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         return nullptr;
     }
 
-    // ÌáÈ¡ÊÓÆµÎÆÀí
+    // æå–è§†é¢‘çº¹ç†
     UFUNCTION(BlueprintCallable, Category = "Custom", meta = (Keywords = "media"))
     static UMediaSource*
         LoadMediaSourceFromAbsolutePath(const FString& AbsolutePath) {
@@ -444,5 +444,22 @@ class UFileOperationsBPLibrary : public UBlueprintFunctionLibrary {
         FileMediaSource->FilePath = AbsolutePath;
 
         return MediaSource;
+    }
+    
+    //åˆ¤æ–­æ–‡æœ¬ä¸­æ˜¯å¦æœ‰ä¸­æ–‡
+    UFUNCTION(BlueprintCallable, Category = "TextUtils")
+    static bool ContainsChinese(const FString& Text)
+    {
+        for (const TCHAR& Char : Text)
+        {
+            // æ£€æŸ¥ Unicode ç¼–ç æ˜¯å¦åœ¨ä¸­æ–‡å­—ç¬¦èŒƒå›´å†…
+            if ((Char >= 0x4E00 && Char <= 0x9FFF) || // åŸºæœ¬ä¸­æ–‡å­—ç¬¦
+                (Char >= 0x3400 && Char <= 0x4DBF) || // æ‰©å±•A
+                (Char >= 0x20000 && Char <= 0x2A6DF)) // æ‰©å±•Bï¼ˆéœ€ä»£ç†å¯¹å¤„ç†ï¼‰
+            {
+                return true;
+            }
+        }
+        return false;
     }
 };

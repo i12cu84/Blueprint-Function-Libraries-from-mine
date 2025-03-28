@@ -20,6 +20,14 @@ void EmptyLinkFunctionForGeneratedCodeFileOperationsBPLibrary() {}
 	MEDIAASSETS_API UClass* Z_Construct_UClass_UMediaSource_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_FileOperations();
 // End Cross Module References
+	DEFINE_FUNCTION(UFileOperationsBPLibrary::execContainsChinese)
+	{
+		P_GET_PROPERTY(FStrProperty,Z_Param_Text);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=UFileOperationsBPLibrary::ContainsChinese(Z_Param_Text);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UFileOperationsBPLibrary::execLoadMediaSourceFromAbsolutePath)
 	{
 		P_GET_PROPERTY(FStrProperty,Z_Param_AbsolutePath);
@@ -295,6 +303,7 @@ void EmptyLinkFunctionForGeneratedCodeFileOperationsBPLibrary() {}
 	{
 		UClass* Class = UFileOperationsBPLibrary::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "ContainsChinese", &UFileOperationsBPLibrary::execContainsChinese },
 			{ "CopyFileTo", &UFileOperationsBPLibrary::execCopyFileTo },
 			{ "CopyMessageToClipboard", &UFileOperationsBPLibrary::execCopyMessageToClipboard },
 			{ "CreateDic", &UFileOperationsBPLibrary::execCreateDic },
@@ -329,6 +338,58 @@ void EmptyLinkFunctionForGeneratedCodeFileOperationsBPLibrary() {}
 			{ "WriteStringToFileU8", &UFileOperationsBPLibrary::execWriteStringToFileU8 },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics
+	{
+		struct FileOperationsBPLibrary_eventContainsChinese_Parms
+		{
+			FString Text;
+			bool ReturnValue;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Text_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_Text;
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::NewProp_Text_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::NewProp_Text = { "Text", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FileOperationsBPLibrary_eventContainsChinese_Parms, Text), METADATA_PARAMS(Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::NewProp_Text_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::NewProp_Text_MetaData)) };
+	void Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((FileOperationsBPLibrary_eventContainsChinese_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, sizeof(bool), sizeof(FileOperationsBPLibrary_eventContainsChinese_Parms), &Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::NewProp_Text,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::Function_MetaDataParams[] = {
+		{ "Category", "TextUtils" },
+		{ "Comment", "//\xef\xbf\xbd\xd0\xb6\xef\xbf\xbd\xef\xbf\xbd\xc4\xb1\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc7\xb7\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n" },
+		{ "ModuleRelativePath", "Public/FileOperationsBPLibrary.h" },
+		{ "ToolTip", "\xef\xbf\xbd\xd0\xb6\xef\xbf\xbd\xef\xbf\xbd\xc4\xb1\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc7\xb7\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UFileOperationsBPLibrary, nullptr, "ContainsChinese", nullptr, nullptr, sizeof(Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::FileOperationsBPLibrary_eventContainsChinese_Parms), Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UFileOperationsBPLibrary_CopyFileTo_Statics
 	{
@@ -1836,6 +1897,7 @@ void EmptyLinkFunctionForGeneratedCodeFileOperationsBPLibrary() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_FileOperations,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UFileOperationsBPLibrary_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UFileOperationsBPLibrary_ContainsChinese, "ContainsChinese" }, // 2411169616
 		{ &Z_Construct_UFunction_UFileOperationsBPLibrary_CopyFileTo, "CopyFileTo" }, // 2372997151
 		{ &Z_Construct_UFunction_UFileOperationsBPLibrary_CopyMessageToClipboard, "CopyMessageToClipboard" }, // 1091220867
 		{ &Z_Construct_UFunction_UFileOperationsBPLibrary_CreateDic, "CreateDic" }, // 3791573646
@@ -1914,9 +1976,9 @@ void EmptyLinkFunctionForGeneratedCodeFileOperationsBPLibrary() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_chru_Desktop_PluginsEditor_Plugins_FileOperations_Source_FileOperations_Public_FileOperationsBPLibrary_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UFileOperationsBPLibrary, UFileOperationsBPLibrary::StaticClass, TEXT("UFileOperationsBPLibrary"), &Z_Registration_Info_UClass_UFileOperationsBPLibrary, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFileOperationsBPLibrary), 2279746591U) },
+		{ Z_Construct_UClass_UFileOperationsBPLibrary, UFileOperationsBPLibrary::StaticClass, TEXT("UFileOperationsBPLibrary"), &Z_Registration_Info_UClass_UFileOperationsBPLibrary, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFileOperationsBPLibrary), 895743507U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_chru_Desktop_PluginsEditor_Plugins_FileOperations_Source_FileOperations_Public_FileOperationsBPLibrary_h_816903133(TEXT("/Script/FileOperations"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_chru_Desktop_PluginsEditor_Plugins_FileOperations_Source_FileOperations_Public_FileOperationsBPLibrary_h_1772250462(TEXT("/Script/FileOperations"),
 		Z_CompiledInDeferFile_FID_Users_chru_Desktop_PluginsEditor_Plugins_FileOperations_Source_FileOperations_Public_FileOperationsBPLibrary_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_chru_Desktop_PluginsEditor_Plugins_FileOperations_Source_FileOperations_Public_FileOperationsBPLibrary_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
